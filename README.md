@@ -2,8 +2,8 @@
 
 Prompt Composer is a powerful Emacs minor mode designed to streamline the management, composition, and reuse of LLM (Large Language Model) prompts. It transforms Emacs into a dedicated "Prompt IDE," allowing you to construct complex prompts dynamically from modular building blocks stored in Org files.
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Emacs: 26.1+](https://img.shields.io/badge/Emacs-26.1%2B-purple.svg)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-green?style=for-the-badge)](https://opensource.org/license/bsd-3-clause)
+![Emacs](https://img.shields.io/badge/Emacs-%237F5AB6.svg?&style=for-the-badge&logo=gnu-emacs&logoColor=white)
 
 ## ✨ Features
 
