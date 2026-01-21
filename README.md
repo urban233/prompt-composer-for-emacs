@@ -34,18 +34,19 @@ Save the `prompt-composer.el` file into your lisp directory:
 Add the following to your `~/.emacs.d/init.el`. This configuration handles package dependencies (Company, Transient) and sets up the mode safely.
 
 ```elisp
-;;; init.el --- Prompt Composer Configuration
+;;; init.el --- Emacs Configuration
 
-;; 1. DISABLE ORG CACHE (Prevents "mixed version" crashes)
+;; 1. DISABLE ORG CACHE (The Fix)
+;; This stops the "org-element--cache-active-p" error by turning off the feature entirely.
 (setq org-element-use-cache nil)
 
 ;; 2. Initialize Package Manager
 (require 'package)
-(setq package-archives '(("melpa" . "[https://melpa.org/packages/](https://melpa.org/packages/)")
-                         ("gnu"   . "[https://elpa.gnu.org/packages/](https://elpa.gnu.org/packages/)")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("gnu"   . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;; 3. Install Dependencies (Company & Transient)
+;; 3. Install Dependencies
 (defvar my-packages '(transient company))
 (dolist (pkg my-packages)
   (unless (package-installed-p pkg)
@@ -63,15 +64,14 @@ Add the following to your `~/.emacs.d/init.el`. This configuration handles packa
 (require 'prompt-composer)
 
 ;; 6. Keybindings
-(global-set-key (kbd "C-c p m") #'prompt-composer-transient)   ;; Menu
-(global-set-key (kbd "C-c p w") #'prompt-composer-workspace)   ;; Workspace Layout
-(global-set-key (kbd "C-c p v") #'prompt-composer-preview)     ;; Preview Prompt
-(global-set-key (kbd "C-c p i") #'prompt-composer-populate-vars) ;; Fill Templates
+(global-set-key (kbd "C-c p m") #'prompt-composer-transient)
+(global-set-key (kbd "C-c p w") #'prompt-composer-workspace)
+(global-set-key (kbd "C-c p v") #'prompt-composer-preview)
+(global-set-key (kbd "C-c p i") #'prompt-composer-populate-vars)
 
-;; 7. Load Built-in Org
+;; 7. Load Org (Built-in)
 (require 'org)
 (require 'org-id)
-
 ```
 
 ## 🛠 Usage
